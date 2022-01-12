@@ -1,3 +1,5 @@
+package Enkript;
+
 
 import java.util.Scanner;
 
@@ -9,10 +11,7 @@ public class Encriptacion {
     int x;
 
     //filtros: metodo para solicitar el mensaje que se encriptara, retorna un arreglo
-    private char[] SolicitarMensaje() {
-        String cadena;
-        System.out.println("ingrese mensaje a encriptar: "); //solicitar ingreso de mensaje
-        cadena = ingreso.nextLine(); //ingreso de cadena por teclado
+    private char[] SolicitarMensaje(String cadena) {
         cadena = cadena.toLowerCase(); //convertir letras en minusculas
         char mensaje[] = new char[cadena.length()]; //creacion de arreglo con tamaño de la cadena
         mensaje = cadena.toCharArray(); //llenado de arreglo con contenido de la cadena
@@ -20,11 +19,9 @@ public class Encriptacion {
     }
 
     //filtros: metodo para imprimir lo contenido en el arreglo indicado, no retorna
-    private void Imprimir(char[] mensaje) {
-        for (int i = 0; i < mensaje.length; i++) { //recorre toda la extension del arreglo
-            System.out.print(mensaje[i]); //imprime la posicion i del arreglo mensaje
-        }
-        System.out.println(); //pone un salto de linea
+    private String Imprimir(char[] mensaje) {
+        String mensaje1=String.valueOf(mensaje);
+        return (mensaje1);
     }
 
     //filtro 1: metodo que cambia el valor de letras y numeros en el arreglo indicado, retorna un arreglo
@@ -745,12 +742,13 @@ public class Encriptacion {
     /*
     solicita mensaje, realiza las operaciones pertinentes y posteriormente imprime solo el resultado de la encriptacion
      */
-    public void Pandora() {
+    public String Pandora(String texto) {
         //declaracion de variables
         char mensaje[], mensaje2[], mensaje3[], mensaje4[];
+        String mensaje5;
         long num; //extension maxima = 9223372036854775807
         //aplicacion de metodos
-        mensaje = SolicitarMensaje(); //solicita mensaje que se encriptara
+        mensaje = SolicitarMensaje(texto); //solicita mensaje que se encriptara
         mensaje = Letras1(mensaje); //cambia el valor de las letras y de los numeros
         mensaje = Letras2(mensaje); //cambia el valor de letras por el de numeros y viceversa
         mensaje = SepararNum(mensaje); //quita los numeros y los envia justo despues de las letras
@@ -759,8 +757,8 @@ public class Encriptacion {
         mensaje3 = Girar(num);//convierte nuevamente los numeros a cadena y esta en arreglo, coloca los numeros al reves
         mensaje4 = Unir(mensaje, mensaje3); //une el arreglo con texto y el arreglo con numeros
         mensaje4 = Letras3(mensaje4); //cambia el valor de los numeros
-        Imprimir(mensaje4); //imprime el codigo final
-
+        mensaje5=Imprimir(mensaje4);
+        return(mensaje5);
         /*mejorar programa haciendo que cada que se encuentre una x (de espacio) se cree un nuevo 
         codigo, esto para evitar llegar a la extension completa del valor long, agregar tambien los
         signos*/

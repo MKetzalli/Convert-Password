@@ -1,3 +1,5 @@
+package Enkript;
+
 
 import java.util.Scanner;
 
@@ -9,10 +11,7 @@ public class Desencriptacion {
     int x;
 
     //filtros: metodo para solicitar el mensaje que se desencriptara, retorna un arreglo
-    private char[] SolicitarMensaje() {
-        String cadena;
-        System.out.println("ingrese mensaje a desencriptar: "); //solicitar ingreso de mensaje
-        cadena = ingreso.nextLine(); //ingreso de cadena por teclado
+    private char[] SolicitarMensaje(String cadena) {
         cadena = cadena.toLowerCase(); //convertir letras en minusculas
         char mensaje[] = new char[cadena.length()]; //creacion de arreglo con tamaño de la cadena
         mensaje = cadena.toCharArray(); //llenado de arreglo con contenido de la cadena
@@ -20,11 +19,9 @@ public class Desencriptacion {
     }
 
     //filtros: metodo para imprimir lo contenido en el arreglo indicado, no retorna
-    private void Imprimir(char[] mensaje) {
-        for (int i = 0; i < mensaje.length; i++) { //recorre toda la extension del arreglo
-            System.out.print(mensaje[i]); //imprime la posicion i del arreglo mensaje
-        }
-        System.out.println(); //pone un salto de linea
+    private String Imprimir(char[] mensaje) {
+        String mensaje1=String.valueOf(mensaje);
+        return (mensaje1);
     }
 
     //filtro 1: metodo que cambia el valor de los numeros, retorna un arreglo
@@ -572,11 +569,12 @@ public class Desencriptacion {
     /*
     solicita mensaje, realiza las operaciones pertinentes y posteriormente imprime solo el resultado de la desencriptacion
      */
-    public void Pandora() {
+    public String Pandora(String texto) {
         //declaracion de variables
         char mensaje1[], mensaje2[], mensaje3[], mensaje4[], mensaje5[];
+        String mensaje6;
         //aplicacion de metodos
-        mensaje1 = SolicitarMensaje(); //solicita mensaje que se desencriptara
+        mensaje1 = SolicitarMensaje(texto); //solicita mensaje que se desencriptara
         mensaje1 = Letras1(mensaje1); //cambia el valor de los numeros
         mensaje2 = ObtenerNum(mensaje1); //saca los numeros
         mensaje2 = Girar(mensaje2); //gira el orden de los numeros
@@ -584,6 +582,7 @@ public class Desencriptacion {
         mensaje4 = Unir(mensaje1, mensaje3); //une en la posicion correcta los numeros y letras
         mensaje5 = Letras2(mensaje4); //cambia el valor de los numeros y letras
         mensaje5 = Letras3(mensaje5); //cambia el valor de los numeros y letras
-        Imprimir(mensaje5); //imprime el codigo final
+        mensaje6=Imprimir(mensaje5); //imprime el codigo final
+        return (mensaje6);
     }
 }
