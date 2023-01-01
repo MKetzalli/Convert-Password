@@ -1,0 +1,22 @@
+html{
+    margin:5px;
+    padding: 0;
+    width: max-content;
+}
+body{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#TypesTransform{
+    display: flex;
+    justify-content: center;
+}
+#Transform,#Untransform{
+    margin:5px
+}
+#Transform *{
+    margin-bottom:5px;
+}
+#Untransform *{
+    margin-bottom:5px;
+}

@@ -1,6 +1,6 @@
 # Convert-Password
 
-![Captura](https://user-images.githubusercontent.com/55233980/149175966-f32fb544-6c5b-4c5f-9eba-fbf3e9000ef8.PNG)
+![Captura de pantalla (107)](https://user-images.githubusercontent.com/55233980/210163042-9b2a026a-71b4-44c7-ab00-3d8c25c92089.png)
 
 DESCRIPCION: solicita mensaje de texto comun y lo pasa por medio de 5 filtros diferentes para cifrarlo y que al obtener el resultado
 sea imposible comprender el mensaje original, enseguida pregunta que mensaje se desea desencriptar, si se escribe 
@@ -18,8 +18,10 @@ NOTA2: si se ingresan numeros se debe ingresar por lo menos una letra, ya que al
 - filtro 5: los numeros cambian sus valores nuevamente
 
 ## Historial de versiones
-- version 1: funcionamiento general 19/06/2019
-- version 2: gui basica 26/06/2019
+- version 1.0: funcionamiento general 19/06/2019
+- version 1.2: gui basica 26/06/2019
+- version 1.3: conversion a extension de chrome 31/12/2022
 
 ## Cambios a realizar
 - optimizacion del codigo
+- insertar comentarios
